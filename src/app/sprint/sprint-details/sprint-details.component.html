@@ -1,0 +1,33 @@
+<div class="container">
+    <img [src]="" [alt]="" class="sprint-image">
+
+    <div class="row">
+        <div class="col-md-11">
+            <h3>{{sprintItem?.title}}</h3>
+            <h4>{{sprintItem?.id}}</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+
+
+
+
+            <hr>
+            <div class="story-attr"><label>Rollover Category:</label>
+                <div class="story-cat-value" [ngClass]="sprintCatService.getCatClass(sprintItem?.category)">
+                    {{sprintCatService.getCatLabel(sprintItem?.category)}}
+                </div>
+            </div>
+            <div class="story-attr"><label>Rollover Reason:</label> {{sprintItem?.reason}}
+            </div>
+            <div class="story-attr"><label>Sprint Rollover Count:</label> {{sprintItem?.sprintrollovers}}</div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="story-attr"><label>Inital size:</label> {{sprintItem?.initsize}}</div>
+            <div class="story-attr"><label>Actual size:</label> {{sprintItem?.actsize}}</div>
+        </div>
+    </div>
+</div>
