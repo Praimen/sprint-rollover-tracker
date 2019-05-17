@@ -13,8 +13,7 @@ import { ToastrService } from "../common/toastr.service"
         <story-item  
          *ngFor="let item of data"
          [templateObj]="item" 
-         (eventFromChild)="handleEventFromChild($event)"
-         (click)="popup(item.title)">  
+         (eventFromChild)="handleEventFromChild($event)" >  
               
         </story-item>
       </div>  
@@ -29,11 +28,14 @@ export class SprintListComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.data = this.sprintListService.getSprintList();
+    this.sprintListService.getSprintList().subscribe(data => {
+        this.data = data;
+    });
   }
 
   handleEventFromChild(data){
     console.log(data)
+    this.popup(data.title)
   }
 
   popup(title){

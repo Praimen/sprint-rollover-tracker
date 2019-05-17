@@ -2,16 +2,27 @@
  * Created by b16552 on 5/9/2019.
  */
 import { Injectable } from '@angular/core';
+import {Subject} from "rxjs";
+
 
 @Injectable()
 export class SprintListService{
-    getSprintList(){
-        return SPRINTDATA;
+    private sprintList:any;
+
+    getSprintList() {
+        let subject = new Subject();
+
+        setTimeout(() => {
+            subject.next(SPRINTDATA);
+            subject.complete()
+        },1000);
+
+        return subject;
     }
 
-    getSprintItem(id:string){
-        return SPRINTDATA.find(sprintItem => sprintItem.id === id)
-    }
+
+
+
 }
 
 const SPRINTDATA = [

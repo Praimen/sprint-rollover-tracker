@@ -2,7 +2,7 @@
  * Created by b16552 on 5/9/2019.
  */
 import {Component, OnInit} from '@angular/core'
-import {SprintListService} from "../shared/sprint-list.service";
+
 import {SprintCategoryService} from "../shared/sprint-category.service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -20,11 +20,11 @@ import {ActivatedRoute} from "@angular/router";
 
 export class SprintDetailsComponent implements OnInit{
     sprintItem:any;
+    sprintObj:any[]
     sprintCatService:any;
-    routeId:any;
-
+    routeId: any;
     constructor(
-        private sprintService:SprintListService,
+
         private catService:SprintCategoryService,
         private route:ActivatedRoute
     ){
@@ -34,9 +34,17 @@ export class SprintDetailsComponent implements OnInit{
 
 
     ngOnInit(){
-        this.routeId = ''+ this.route.snapshot.params['id'];
-        this.sprintItem = this.sprintService.getSprintItem(this.routeId);
+        this.routeId = '' + this.route.snapshot.params['id'];
+
         this.sprintCatService = this.catService;
+        this.sprintObj = this.route.snapshot.data['sprintItem'];
+
+        this.sprintItem = this.sprintObj.find(sprintItem => sprintItem.id == this.routeId)
+        console.log('is there any sprintItem ' , this.sprintItem)
+
+
+
+
     }
 
 

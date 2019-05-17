@@ -14,6 +14,7 @@ import {Error404Component} from "./errors/error-404.component";
 import {SprintAppRouteService} from "./routes/sprint-app-route.service";
 import {SprintCategoryService} from "./sprint/shared/sprint-category.service";
 import {CreateSprintComponent} from "./sprint/create-sprint.component";
+import {SprintDetailResolver} from "./sprint/sprint-details/sprint-details-resolver.service";
 
 
 
@@ -22,6 +23,7 @@ import {CreateSprintComponent} from "./sprint/create-sprint.component";
       SprintAppComponent,
       SprintListComponent,
       SprintDetailsComponent,
+
       CreateSprintComponent,
       StoryItemComponent,
       NavMenuComponent,
@@ -31,7 +33,7 @@ import {CreateSprintComponent} from "./sprint/create-sprint.component";
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ SprintListService , SprintCategoryService, SprintAppRouteService, ToastrService],
+  providers: [ SprintListService , SprintCategoryService, SprintAppRouteService, SprintDetailResolver, ToastrService],
   bootstrap: [ SprintAppComponent ]
 })
 
