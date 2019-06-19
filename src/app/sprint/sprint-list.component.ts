@@ -28,7 +28,7 @@ export class SprintListComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.sprintListService.getSprintList().subscribe(data => {
+    this.sprintListService.getSprintListPromise().then(data => {
         this.data = data;
     });
   }

@@ -17,8 +17,8 @@
 
             <hr>
             <div class="story-attr"><label>Rollover Category:</label>
-                <div class="story-cat-value" [ngClass]="sprintCatService.getCatClass(sprintItem.category)">
-                    {{sprintCatService.getCatLabel(sprintItem.category)}}
+                <div class="story-cat-value" [ngClass]="sprintCatService.getCatClass(sprintItem?.category)">
+                    {{sprintCatService.getCatLabel(sprintItem?.category)}}
                 </div>
             </div>
             <div class="story-attr"><label>Rollover Reason:</label> {{sprintItem?.reason}}

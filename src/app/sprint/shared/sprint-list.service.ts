@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import {Subject} from "rxjs";
 
 
+
 @Injectable()
 export class SprintListService{
     private sprintList:any;
@@ -18,6 +19,21 @@ export class SprintListService{
         },1000);
 
         return subject;
+    }
+
+
+    getSprintListPromise(){
+
+        var promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (!SPRINTDATA) {
+                    reject('error'); // pass values
+                } else {
+                    resolve(SPRINTDATA);
+                }
+            }, 1000);
+        });
+        return promise;
     }
 
 

@@ -15,7 +15,9 @@ export class SprintDetailResolver implements Resolve<any>{
 
     }
     resolve(){
-        return this.sprintService.getSprintList().pipe(map(sprintItem => sprintItem));
+        //return this.sprintService.getSprintList().pipe(map(sprintItem => sprintItem));
+
+        return this.sprintService.getSprintListPromise().then((val) => val);
     }
 
 }
