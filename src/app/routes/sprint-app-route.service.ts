@@ -25,31 +25,30 @@ export class SprintAppRouteService implements CanActivate{
 
 
         //console.log('outside', this.sprintListService.getSprintList());
-        this.routeExists = this.sprintListService.getSprintListPromise().then((sprintItems)=>
-                        {
-                            var routeBool = false;
-                            console.log('sprintItems', typeof sprintItems);
-                            console.log('Completed', route1.url);
+        this.routeExists = this.sprintListService.getSprintListPromise()
+            .then((sprintItems)=>
+                {
+                    var routeBool = false;
+                   // console.log('sprintItems', typeof sprintItems);
+                    //console.log('Completed', route1.url);
 
-                            for(let keys in sprintItems){
-                                let sprintItem = sprintItems[keys];
-                                console.log('sprintItem', sprintItems[keys])
-                                if(sprintItem.id == route.params['id']){
-                                    routeBool = true;
-                                }
-                            }
+                    for(let keys in sprintItems){
+                        if(sprintItems[keys].id == route.params['id']){
+                            routeBool = true;
+                        }
+                    }
 
-                            if(!routeBool){
-                                router.navigate(['/404']);
-                                console.log('hey this should be 404');
-                            }
+                    if(!routeBool){
+                        router.navigate(['/404']);
+                    }
 
-                            return routeBool
+                    return routeBool
 
-                    }).catch((err) =>{
-                            console.error('Error: ' + err);
+            })
+            .catch((err) =>{
+                    console.error('Error: ' + err);
 
-                    })
+            })
 
 
 

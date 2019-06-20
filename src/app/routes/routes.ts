@@ -3,12 +3,15 @@
  */
 
 import {Routes} from '@angular/router';
-import {SprintListComponent} from "../sprint/sprint-list.component";
-import {SprintDetailsComponent} from "../sprint/sprint-details/sprint-details.component";
-import {CreateSprintComponent} from "../sprint/create-sprint.component";
+
 import {Error404Component} from "../errors/error-404.component";
 import {SprintAppRouteService} from "./sprint-app-route.service";
-import {SprintDetailResolver} from "../sprint/sprint-details/sprint-details-resolver.service";
+import {
+    SprintDetailResolver,
+    SprintListComponent,
+    SprintDetailsComponent,
+    CreateSprintComponent
+    } from "../sprint/index";
 
 
 
@@ -19,6 +22,7 @@ export const appRoutes:Routes = [
         canActivate:[SprintAppRouteService]
         },
     {path: '404', component: Error404Component},
-    {path: '', redirectTo: '/sprints', pathMatch: 'full'}
+    {path: '', redirectTo: '/sprints', pathMatch: 'full'},
+    {path: 'user', loadChildren:'./user/user.module#UserModule'}
 
 ];

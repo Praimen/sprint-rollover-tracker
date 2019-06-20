@@ -16,7 +16,7 @@ export class SprintListService{
         setTimeout(() => {
             subject.next(SPRINTDATA);
             subject.complete()
-        },1000);
+        },200);
 
         return subject;
     }
@@ -31,7 +31,7 @@ export class SprintListService{
                 } else {
                     resolve(SPRINTDATA);
                 }
-            }, 1000);
+            }, 200);
         });
         return promise;
     }
