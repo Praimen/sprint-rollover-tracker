@@ -1,5 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
-import { SprintAppComponent } from './sprint-app.component';
+import {NO_ERRORS_SCHEMA} from "@angular/core";
+import{
+  SprintAppComponent,
+
+} from '../index';
+
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -7,6 +13,7 @@ describe('AppComponent', () => {
       declarations: [
         SprintAppComponent
       ],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 
@@ -19,13 +26,13 @@ describe('AppComponent', () => {
   it(`should have as title 'sprint-rollover-tracking'`, () => {
     const fixture = TestBed.createComponent(SprintAppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('sprint-rollover-tracking');
+    expect(app.title).toEqual('Sprint Rollover Tracking');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(SprintAppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to sprint-rollover-tracking!');
+    expect(compiled.querySelector('h1').textContent).toContain('Sprint Rollover Tracking!');
   });
 });
