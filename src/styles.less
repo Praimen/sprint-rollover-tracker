@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+@import (css) url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+body{
+
+  display: grid;
+  margin:0;
+  padding:0;
+  font-family:'Montserrat',sans-serif;
+
+}
+header{
+
+  display: grid;
+  background-color: #98c5df;
+
+
+  nav{
+    .container-fluid{
+      display: grid;
+      grid-template-columns: [nav-start] fit-content(20%) [nav-menu-start] auto [nav-menu-end] auto [nav-end];
+    }
+
+    .navbar-header{
+      padding:15px;
+      margin-left:15px;
+      background-color: #F3F1C7;
+      color: #298383;
+      text-align: center;
+      font-weight:bold;
+      display: inline-block;
+
+    }
+    .navbar-right{
+      float: right;
+    }
+
+    ul.navbar-menu{
+      a{
+        text-decoration: none;
+      }
+
+      list-style-type: none;
+      float: left;
+
+      & > li{
+        display: inline-block;
+        vertical-align: top;
+        color: #ffffff;
+        padding:10px;
+        a{
+          color: #ffffff;
+        }
+
+        ul.dropdown-menu {
+          padding:0;
+          display: none;
+          li {
+            display: block;
+            margin-left: 0;
+            padding-left: 0;
+          }
+        }
+
+
+      }
+
+    }
+
+    .navbar-profile {
+      grid-column-start: nav-menu-end;
+      grid-column-end: span nav-end;
+
+    }
+
+  }
+}
