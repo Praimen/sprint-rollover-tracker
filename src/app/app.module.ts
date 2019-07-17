@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from "@angular/router";
-
+import { HttpClientModule }from '@angular/common/http'
 
 import{ SprintAppComponent,
         SprintListComponent,
@@ -25,22 +25,23 @@ import {Error404Component} from "./errors/error-404.component";
 
 
 @NgModule({
-  declarations: [
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(appRoutes),
+        HttpClientModule
+    ],
+    declarations: [
       SprintAppComponent,
       SprintListComponent,
       SprintDetailsComponent,
-
       CreateSprintComponent,
       StoryItemComponent,
       NavMenuComponent,
       Error404Component
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [ SprintListService , SprintCategoryService, SprintAppRouteService, SprintDetailResolver, ToastrService],
-  bootstrap: [ SprintAppComponent ]
+    ],
+
+    providers: [ SprintListService , SprintCategoryService, SprintAppRouteService, SprintDetailResolver, ToastrService],
+    bootstrap: [ SprintAppComponent ]
 })
 
 export class AppModule { }

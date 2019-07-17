@@ -2,38 +2,45 @@
  * Created by b16552 on 5/9/2019.
  */
 import { Injectable } from '@angular/core';
-import {Subject} from "rxjs";
+import {Observable, of} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {catchError} from "rxjs/internal/operators";
 
 
 
 @Injectable()
 export class SprintListService{
     private sprintList:any;
+    constructor(private http:HttpClient){
+
+    }
 
     getSprintList() {
-        let subject = new Subject();
+       return this.http.get('http://localhost:8282/api/sprint-tracker/sprint-list.json')
+        .pipe(catchError(this.handleError('getEvents',[])))
 
-        setTimeout(() => {
-            subject.next(SPRINTDATA);
-            subject.complete()
-        },200);
+    }
 
-        return subject;
+    private handleError(operation = 'operation', result?){
+        return (error :any):any => {
+            console.error(error);
+            return of (result);
+        }
     }
 
 
     getSprintListPromise(){
+        return this.getSprintList().toPromise();
+       /* return new Promise((resolve, reject) => {
 
-        var promise = new Promise((resolve, reject) => {
-            setTimeout(() => {
                 if (!SPRINTDATA) {
                     reject('error'); // pass values
                 } else {
                     resolve(SPRINTDATA);
                 }
-            }, 200);
-        });
-        return promise;
+
+        });*/
+
     }
 
 
@@ -41,6 +48,7 @@ export class SprintListService{
 
 }
 
+/*
 const SPRINTDATA = [
     {
         uid: 12345,
@@ -75,4 +83,4 @@ const SPRINTDATA = [
         actsize: 21
 
     }
-];
+];*/

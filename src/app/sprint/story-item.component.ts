@@ -18,20 +18,12 @@ import {SprintCategoryService} from "./shared/sprint-category.service";
             <div class="story-attr"><label>Actual size:</label> {{templateObj.actsize}}</div> 
          
             <div class="button-row">
-                <button class="btn btn-success" (click)="handleClickMe()">Click Me</button>
+                <button class="btn btn-success sml" (click)="handleClickMe()">Click Me</button>
             </div>
         </div>      
     `,
     styles:[`
-        .pad-left{margin-left: 20px;}
-        div.well{ color: #bbb; font-size: 14px;}
-        .story-attr label{ display: inline-block; width: 20%; font-weight: bold;  font-size: 14px; }
-        button{ background-color: #54a688; color: #eaeaea;  }
-        .button-row{text-align: right; }
-        .story-cat-value{ width:80%; display: inline-block; padding: 3px 5px;}
-        .ext-dep{ background-color: aqua; color: #168d90;}
-        .not-ready{ background-color: coral; color: #814129;}
-        .scope-creep{background-color: crimson; color: #8c122b;}        
+               
     `]
 })
 

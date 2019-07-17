@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['../app.component.less']
 })
 export class SprintAppComponent {
-  title = 'Sprint Rollover Tracking';
+  title = 'sprint rollover tracking';
 }

@@ -4,7 +4,7 @@
 
 <header>
   <div id="app-title">
-    <h1>{{ title }}! </h1>
+    <h1>{{ title }} </h1>
     <h4>This application will track Sprints and attempt to provider context around its success or failure </h4>
   </div>
 
@@ -13,5 +13,27 @@
 
 <router-outlet></router-outlet>
 
+</div>
+
+<div id="summary-section">
+  <div id="summary-top">green top</div>
+  <div id="summary-bottom">green bottom</div>
+</div>
+
+<div id="category-section">
+  <form id="search-form" class="navbar-form navbar-search ">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search Sessions">
+    </div>
+    <button class="btn btn-default sml">
+      Search
+    </button>
+  </form>
+
+  <div class="nav navbar-profile">
+
+    <a [routerLink]="['user/profile']" class="user-link">Welcome Tommie</a>
+    <button class="btn btn-primary sml">Logout</button>
+  </div>
 </div>
 

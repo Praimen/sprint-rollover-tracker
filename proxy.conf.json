@@ -1,0 +1,11 @@
+{
+  "/api":{
+    "target":{
+      "host":"localhost",
+      "protocol":"http",
+      "port": 8282,
+      "path": "/api/sprint-tracker/sprint-list.json"
+    },
+    "secure": false
+  }
+}
