@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { SprintListService } from "./shared/sprint-list.service";
 import { ToastrService } from "../common/toastr.service"
+import {ISprint} from "./shared/sprint.model";
 
 
 
@@ -21,7 +22,7 @@ import { ToastrService } from "../common/toastr.service"
 })
 
 export class SprintListComponent implements OnInit{
-  data:any;
+  data:ISprint[];
 
   constructor(private sprintListService: SprintListService, private toastr:ToastrService){
 
@@ -34,11 +35,11 @@ export class SprintListComponent implements OnInit{
   }
 
   handleEventFromChild(data){
-    console.log(data)
-    this.popup(data.title)
+    console.log(data);
+    this.popup(data.title);
   }
 
   popup(title){
-    this.toastr.success(title)
+    this.toastr.success(title);
   }
 }

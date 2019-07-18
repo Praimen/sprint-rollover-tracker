@@ -3,3 +3,4 @@
  */
 export * from './sprint-list.service';
 export * from "./sprint-category.service";
+export * from "./sprint.model";

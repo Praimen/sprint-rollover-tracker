@@ -32,6 +32,4 @@ export class ProfileComponent {
     }
 
 
-}/**
- * Created by b16552 on 6/19/2019.
- */
+}

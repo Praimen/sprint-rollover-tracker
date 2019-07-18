@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {catchError} from "rxjs/internal/operators";
+import {ISprint} from "./sprint.model";
 
 
 
@@ -29,9 +30,9 @@ export class SprintListService{
     }
 
 
-    getSprintListPromise(){
-        return this.getSprintList().toPromise();
-       /* return new Promise((resolve, reject) => {
+    getSprintListPromise():Promise<ISprint[]>{
+        //return this.getSprintList().toPromise();
+        return new Promise((resolve, reject) => {
 
                 if (!SPRINTDATA) {
                     reject('error'); // pass values
@@ -39,7 +40,7 @@ export class SprintListService{
                     resolve(SPRINTDATA);
                 }
 
-        });*/
+        });
 
     }
 
@@ -48,8 +49,7 @@ export class SprintListService{
 
 }
 
-/*
-const SPRINTDATA = [
+const SPRINTDATA:ISprint[] = [
     {
         uid: 12345,
         id: 'PA-12345',
@@ -83,4 +83,4 @@ const SPRINTDATA = [
         actsize: 21
 
     }
-];*/
+];
