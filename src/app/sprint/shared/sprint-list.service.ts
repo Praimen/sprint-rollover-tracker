@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {catchError} from "rxjs/internal/operators";
+import {ISprint} from "./sprint.model";
 
 
 
@@ -21,17 +22,23 @@ export class SprintListService{
 
     }
 
+    getSprintListObs():Observable<any> {
+        return this.http.get<any>('http://localhost:8282/api/sprint-tracker/sprint-list.json')
+            .pipe(catchError(this.handleError('getEvents', [])))
+
+    }
+
     private handleError(operation = 'operation', result?){
         return (error :any):any => {
-            console.error(error);
-            return of (result);
+            console.error('here is the error:',error);
+            return (result);
         }
     }
 
 
     getSprintListPromise(){
         return this.getSprintList().toPromise();
-       /* return new Promise((resolve, reject) => {
+        /*return new Promise((resolve, reject) => {
 
                 if (!SPRINTDATA) {
                     reject('error'); // pass values
@@ -41,15 +48,15 @@ export class SprintListService{
 
         });*/
 
+
+
     }
 
 
 
-
 }
-
 /*
-const SPRINTDATA = [
+const SPRINTDATA:ISprint[] = [
     {
         uid: 12345,
         id: 'PA-12345',

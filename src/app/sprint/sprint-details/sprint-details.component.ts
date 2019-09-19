@@ -20,7 +20,7 @@ import {ActivatedRoute} from "@angular/router";
 
 export class SprintDetailsComponent implements OnInit{
     sprintItem:any;
-    sprintObj:any[]
+    sprintObj:any[];
     sprintCatService:any;
     routeId: any;
     constructor(
